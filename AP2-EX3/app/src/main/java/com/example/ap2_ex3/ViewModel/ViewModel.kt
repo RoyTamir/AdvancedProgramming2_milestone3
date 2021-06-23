@@ -17,7 +17,7 @@ class ViewModel {
     fun setIP(s: String) {
         ip = s
     }
-    fun getIP(): String {
+    fun getIP(): String? {
         return ip
     }
     fun setRudder(x: Double) {
