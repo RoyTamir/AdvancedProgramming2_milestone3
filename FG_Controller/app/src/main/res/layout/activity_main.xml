@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
-            type="com.example.fg_controller.ViewModel.ViewModel" />
+            type="com.example.fg_controller.view_model.ViewModel" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.MainActivity">
@@ -22,7 +22,7 @@
         android:layout_marginRight="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@{viewModel.ip}"
+        android:text="@={viewModel.ip}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_ip"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
         android:layout_marginRight="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@{viewModel.port}"
+        android:text="@={viewModel.port}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_port"
         app:layout_constraintTop_toBottomOf="@+id/editText_ip" />
@@ -70,13 +70,14 @@
         app:layout_constraintTop_toTopOf="@+id/editText_ip" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/connect_button"
+        android:text="Connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginLeft="22dp"
         android:layout_marginTop="25dp"
-        android:text="Button"
+        android:onClick="onClick_connect"
         app:layout_constraintStart_toEndOf="@+id/textView_port"
         app:layout_constraintTop_toBottomOf="@+id/editText_port" />
 

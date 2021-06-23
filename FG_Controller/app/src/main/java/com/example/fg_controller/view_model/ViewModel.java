@@ -1,4 +1,4 @@
-package com.example.fg_controller.ViewModel;
+package com.example.fg_controller.view_model;
 
 public class ViewModel {
     private String port = null;
