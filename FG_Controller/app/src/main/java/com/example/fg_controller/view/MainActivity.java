@@ -1,4 +1,4 @@
-package com.example.fg_controller.View;
+package com.example.fg_controller.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;

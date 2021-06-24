@@ -8,78 +8,107 @@
             type="com.example.fg_controller.view_model.ViewModel" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".View.MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
 
-    <EditText
-        android:id="@+id/editText_ip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@={viewModel.ip}"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_ip"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editText_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="58dp"
+            android:layout_marginRight="58dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.ip}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_ip"
+            app:layout_constraintTop_toTopOf="@+id/textView_ip" />
 
-    <EditText
-        android:id="@+id/editText_port"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@={viewModel.port}"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_port"
-        app:layout_constraintTop_toBottomOf="@+id/editText_ip" />
+        <EditText
+            android:id="@+id/editText_port"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginRight="58dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.port}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView_port"
+            app:layout_constraintTop_toBottomOf="@+id/editText_ip" />
 
-    <TextView
-        android:id="@+id/textView_port"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:text="port"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_port"
-        app:layout_constraintEnd_toStartOf="@+id/editText_port"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText_port" />
+        <TextView
+            android:id="@+id/textView_port"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="186dp"
+            android:text="port"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarYscale"
+            app:layout_constraintEnd_toStartOf="@+id/editText_port"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ip" />
 
-    <TextView
-        android:id="@+id/textView_ip"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:text="ip"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_ip"
-        app:layout_constraintEnd_toStartOf="@+id/editText_ip"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText_ip" />
+        <TextView
+            android:id="@+id/textView_ip"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:text="ip"
+            app:layout_constraintBottom_toTopOf="@+id/textView_port"
+            app:layout_constraintEnd_toStartOf="@+id/editText_ip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/connect_button"
-        android:text="Connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="25dp"
-        android:onClick="onClick_connect"
-        app:layout_constraintStart_toEndOf="@+id/textView_port"
-        app:layout_constraintTop_toBottomOf="@+id/editText_port" />
+        <Button
+            android:id="@+id/connect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:onClick="onClick_connect"
+            android:text="Connect"
+            app:layout_constraintStart_toStartOf="@+id/editText_port"
+            app:layout_constraintTop_toBottomOf="@+id/editText_port" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <SeekBar
+            android:id="@+id/seekBarXscale"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginEnd="58dp"
+            android:layout_marginRight="58dp"
+            android:layout_marginBottom="130dp"
+            android:max="2000"
+            android:progress="@={viewModel.throttle}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarYscale" />
+
+        <SeekBar
+            android:id="@+id/seekBarYscale"
+            android:layout_width="295dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="218dp"
+            android:layout_marginRight="218dp"
+            android:layout_marginBottom="115dp"
+            android:rotation="270"
+            android:max="1000"
+            android:progress="@={viewModel.rudder}"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarXscale"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_port" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
