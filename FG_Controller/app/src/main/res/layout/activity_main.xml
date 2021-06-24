@@ -110,5 +110,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_port" />
 
+        <com.example.fg_controller.view.Joystick
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarXscale"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/connect_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
