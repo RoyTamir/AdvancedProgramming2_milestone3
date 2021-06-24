@@ -3,8 +3,13 @@ package com.example.fg_controller.view_model;
 public class ViewModel {
     private String port = null;
     private String ip = null;
+<<<<<<< HEAD
     private Integer rudder = 0;
     private Integer throttle = 0;
+=======
+    private int rudder = 500;
+    private int throttle = 1000;
+>>>>>>> cdec91ff01f4d15640d5bd79f19a98d38ae189b5
 
     // member function
     public void setPort(String port) {
@@ -23,11 +28,16 @@ public class ViewModel {
         return ip;
     }
 
+<<<<<<< HEAD
     public void setRudder(Integer rudder) {
+=======
+    public void setRudder(int rudder) {
+>>>>>>> cdec91ff01f4d15640d5bd79f19a98d38ae189b5
         this.rudder = rudder;
     }
 
     public Integer getRudder() {
+<<<<<<< HEAD
         return  rudder;
     }
 
@@ -36,4 +46,16 @@ public class ViewModel {
     }
 
     public Integer getThrottle() { return throttle; }
+=======
+        return rudder;
+    }
+
+    public void setThrottle(int throttle) {
+        this.rudder = throttle;
+    }
+
+    public Integer getThrottle() {
+        return  throttle;
+    }
+>>>>>>> cdec91ff01f4d15640d5bd79f19a98d38ae189b5
 }
