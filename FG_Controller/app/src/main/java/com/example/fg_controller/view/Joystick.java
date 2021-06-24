@@ -61,10 +61,12 @@ public class Joystick extends View {
         canvas.drawCircle(295, 295, 175, paint);
 
         paint.setColor(Color.BLACK);
-        canvas.drawCircle(X, Y, 100, paint);
         canvas.drawCircle(295, 295, 25, paint);
         paint.setStrokeWidth(50);
         canvas.drawLine(295, 295, X, Y, paint);
+
+        paint.setColor(Color.RED);
+        canvas.drawCircle(X, Y, 100, paint);
     }
 
     private double distfromCenter(float x, float y) {
@@ -87,16 +89,19 @@ public class Joystick extends View {
                 if (distfromCenter(x, y) < 200) {
                     X = x;
                     Y = y;
-                } else {
-                    double alpha = Math.abs(Math.atan(x / y));
+                    onChange.accept((X - 295) / 200, (Y - 295) / 200);
+                    break;
+                    /*double alpha = Math.abs(Math.atan(x / y));
                     X = (float) Math.sin(alpha) * 200 * Math.signum(x - 295) + 295;
                     Y = (float) Math.cos(alpha) * 200 * Math.signum(y - 295) + 295;
+                    X = ((x - 295) * 200 / (float) distfromCenter(x, y)) + 295;
+                    y = ((y - 295) * 200 / (float) distfromCenter(x, y)) + 295;*/
+
                 }
-                onChange.accept((X - 295) / 200, (Y - 295) / 200);
-                break;
             case MotionEvent.ACTION_UP:
                 X = 295;
                 Y = 295;
+                onChange.accept((X - 295) / 200, (Y - 295) / 200);
                 break;
         }
 
