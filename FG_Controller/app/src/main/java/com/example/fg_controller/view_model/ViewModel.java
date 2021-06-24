@@ -5,6 +5,8 @@ public class ViewModel {
     private String ip = null;
     private Integer rudder = 0;
     private Integer throttle = 0;
+    private Double a = 0.0;
+    private Double elevator = 0.0;
 
     // member function
     public void setPort(String port) {
@@ -36,4 +38,16 @@ public class ViewModel {
     }
 
     public Integer getThrottle() { return throttle; }
+
+    public void setA(Double a) {
+        this.a = a;
+    }
+
+    public Double getA() { return a; }
+
+    public void setElevator(Double elevator) {
+        this.elevator = elevator;
+    }
+
+    public Double getElevator() { return elevator; }
 }

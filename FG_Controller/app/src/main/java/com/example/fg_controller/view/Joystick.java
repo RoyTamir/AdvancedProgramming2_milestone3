@@ -2,56 +2,76 @@ package com.example.fg_controller.view;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
+import com.example.fg_controller.view_model.ViewModel;
+
+import java.lang.Math;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 
 import org.w3c.dom.Attr;
 
 public class Joystick extends View {
 
     private float X, Y;
+    public java.util.function.BiConsumer<Float, Float> onChange = (a, e) -> System.out.println(a + " " + e);
 
     public Joystick(Context context) {
         super(context);
-
         init(null);
     }
 
     public Joystick(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
         init(attrs);
     }
 
     public Joystick(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(attrs);
     }
 
     public Joystick(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-
         init(attrs);
     }
 
     private void init (@Nullable AttributeSet set) {
-        X = 270;
-        Y = 270;
+        X = 295;
+        Y = 295;
     }
 
     @Override
     protected void onDraw(android.graphics.Canvas canvas) {
-        canvas.drawColor(Color.BLUE);
+        //canvas.drawColor(Color.BLUE);
 
         android.graphics.Paint paint = new android.graphics.Paint();
+
+        paint.setColor(Color.GRAY);
+        canvas.drawCircle(295, 295, 225, paint);
+
+        paint.setColor(Color.LTGRAY);
+        canvas.drawCircle(295, 295, 175, paint);
+
         paint.setColor(Color.BLACK);
         canvas.drawCircle(X, Y, 100, paint);
+        canvas.drawCircle(295, 295, 25, paint);
+        paint.setStrokeWidth(50);
+        canvas.drawLine(295, 295, X, Y, paint);
     }
 
+    private double distfromCenter(float x, float y) {
+        return Math.sqrt(Math.pow(x - 295, 2) + Math.pow(y - 295, 2));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         int eventAction = e.getAction();
@@ -64,12 +84,19 @@ public class Joystick extends View {
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-                X = x;
-                Y = y;
+                if (distfromCenter(x, y) < 200) {
+                    X = x;
+                    Y = y;
+                } else {
+                    double alpha = Math.abs(Math.atan(x / y));
+                    X = (float) Math.sin(alpha) * 200 * Math.signum(x - 295) + 295;
+                    Y = (float) Math.cos(alpha) * 200 * Math.signum(y - 295) + 295;
+                }
+                onChange.accept((X - 295) / 200, (Y - 295) / 200);
                 break;
             case MotionEvent.ACTION_UP:
-                X = 270;
-                Y = 270;
+                X = 295;
+                Y = 295;
                 break;
         }
 
@@ -79,4 +106,8 @@ public class Joystick extends View {
         // tell the View that we handled the event
         return true;
     }
+
+    /*public void setOnChange(java.util.function.BiConsumer<Float, Float> bi) {
+        onChange = bi;
+    }*/
 }

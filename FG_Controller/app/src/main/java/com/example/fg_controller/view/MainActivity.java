@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(viewModel);
         joystick = new Joystick(this);
+        joystick.onChange = (Float a, Float e) -> {
+            viewModel.setA((double) a);
+            viewModel.setElevator((double) e);
+        };
         viewModel.setThrottle(1000);
     }
 
@@ -29,5 +33,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("ip: " + viewModel.getIp());
         System.out.println("rudder: " + viewModel.getRudder());
         System.out.println("throttle: " + viewModel.getThrottle());
+        System.out.println("aeliron: " + viewModel.getA());
+        System.out.println("elevator: " + viewModel.getElevator());
     }
 }
