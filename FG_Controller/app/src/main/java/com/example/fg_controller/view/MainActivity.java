@@ -24,5 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick_connect(View view) {
         System.out.println("port: " + viewModel.getPort());
         System.out.println("ip: " + viewModel.getIp());
+        System.out.println("Xslider: " + viewModel.getRudder());
+        System.out.println("Yslider: " + viewModel.getThrottle());
     }
 }
