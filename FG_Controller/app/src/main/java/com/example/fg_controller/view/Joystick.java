@@ -89,21 +89,18 @@ public class Joystick extends View {
                 if (distfromCenter(x, y) < 200) {
                     X = x;
                     Y = y;
-                    onChange.accept((X - 295) / 200, (Y - 295) / 200);
-                    break;
-                    /*double alpha = Math.abs(Math.atan(x / y));
-                    X = (float) Math.sin(alpha) * 200 * Math.signum(x - 295) + 295;
-                    Y = (float) Math.cos(alpha) * 200 * Math.signum(y - 295) + 295;
+                } else {
                     X = ((x - 295) * 200 / (float) distfromCenter(x, y)) + 295;
-                    y = ((y - 295) * 200 / (float) distfromCenter(x, y)) + 295;*/
-
+                    Y = ((y - 295) * 200 / (float) distfromCenter(x, y)) + 295;
                 }
+                break;
             case MotionEvent.ACTION_UP:
                 X = 295;
                 Y = 295;
-                onChange.accept((X - 295) / 200, (Y - 295) / 200);
                 break;
         }
+
+        onChange.accept((X - 295) / 200, (Y - 295) / 200);
 
         // tell the View to redraw the Canvas
         invalidate();
