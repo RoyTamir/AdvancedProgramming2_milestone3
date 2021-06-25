@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             viewModel.setElevator((double) e);
         };
         //joystick.onChange.accept((float) 1, (float) 1);
-        viewModel.setThrottle(1000);
+        viewModel.setRudder(1000);
     }
 
     public void onClick_connect(View view) {
