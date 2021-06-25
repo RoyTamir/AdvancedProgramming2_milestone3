@@ -28,16 +28,16 @@ public class MainActivity extends AppCompatActivity {
             viewModel.setA((double) a);
             viewModel.setElevator((double) e);
         };
-        //joystick.onChange.accept((float) 1, (float) 1);
         viewModel.setRudder(1000);
     }
 
     public void onClick_connect(View view) {
-        System.out.println("port: " + viewModel.getPort());
+        /*System.out.println("port: " + viewModel.getPort());
         System.out.println("ip: " + viewModel.getIp());
         System.out.println("rudder: " + viewModel.getRudder());
         System.out.println("throttle: " + viewModel.getThrottle());
         System.out.println("aeliron: " + viewModel.getA());
-        System.out.println("elevator: " + viewModel.getElevator());
+        System.out.println("elevator: " + viewModel.getElevator());*/
+        viewModel.connect();
     }
 }
