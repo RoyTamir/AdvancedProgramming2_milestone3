@@ -21,6 +21,7 @@ public class Model {
                 out = new PrintWriter(fg.getOutputStream(), true);
             } catch (Exception e) {
                 System.out.println("connection failed");
+                return;
             }
             sendToFG("set /controls/flight/aileron (-1…1)");
             sendToFG("set /controls/flight/elevator (-1…1)");
@@ -30,9 +31,11 @@ public class Model {
     }
 
     public void sendToFG(String s) {
-        es.execute(() -> {
-           out.print(s);
-           out.flush();
-        });
+        if (out != null) {
+            es.execute(() -> {
+                out.print(s);
+                out.flush();
+            });
+        }
     }
 }
