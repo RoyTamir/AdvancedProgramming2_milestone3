@@ -26,13 +26,14 @@ public class Model {
             sendToFG("set /controls/flight/aileron 0\r\n");
             sendToFG("set /controls/flight/elevator 0\r\n");
             sendToFG("set /controls/flight/rudder 0\r\n");
-            sendToFG("set /controls/engines/current-engine/throttle 1\r\n");
+            sendToFG("set /controls/engines/current-engine/throttle 0\r\n");
         });
     }
 
     public void sendToFG(String s) {
         if (out != null) {
             es.execute(() -> {
+                System.out.println(s);
                 out.print(s);
                 out.flush();
             });

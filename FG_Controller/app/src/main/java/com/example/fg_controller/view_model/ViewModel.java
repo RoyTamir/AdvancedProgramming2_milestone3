@@ -41,23 +41,21 @@ public class ViewModel {
     public void setThrottle(Integer throttle) {
         this.throttle = throttle;
         Double t = ((double) throttle) / 1000;
-        model.sendToFG("set /controls/flight/throttle " + t.toString() + "\r\n");
+        model.sendToFG("set /controls/engines/current-engine/throttle " + t.toString() + "\r\n");
     }
 
     public Integer getThrottle() { return throttle; }
 
     public void setA(Double a) {
         this.a = a;
-        Double al = ((double) a - 1000) / 1000;
-        model.sendToFG("set /controls/flight/aeliron " + al.toString() + "\r\n");
+        model.sendToFG("set /controls/flight/aeliron " + a.toString() + "\r\n");
     }
 
     public Double getA() { return a; }
 
     public void setElevator(Double elevator) {
         this.elevator = elevator;
-        Double e = ((double) elevator - 1000) / 1000;
-        model.sendToFG("set /controls/flight/elevator " + e.toString() + "\r\n");
+        model.sendToFG("set /controls/flight/elevator " + elevator.toString() + "\r\n");
     }
 
     public Double getElevator() { return elevator; }
