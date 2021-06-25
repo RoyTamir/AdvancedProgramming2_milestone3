@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fg_controller.view_model.ViewModel;
 
@@ -21,7 +22,7 @@ import org.w3c.dom.Attr;
 public class Joystick extends View {
 
     private float X, Y;
-    public java.util.function.BiConsumer<Float, Float> onChange = (a, e) -> System.out.println(a + " " + e);
+    public java.util.function.BiConsumer<Float, Float> onChange;
 
     public Joystick(Context context) {
         super(context);
@@ -81,17 +82,18 @@ public class Joystick extends View {
         // you may need the x/y location
         float x = e.getX();
         float y = e.getY();
+        float dist = (float) distfromCenter(x, y);
 
         // put your code in here to handle the event
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-                if (distfromCenter(x, y) < 200) {
+                if (dist < 200) {
                     X = x;
                     Y = y;
                 } else {
-                    X = ((x - 295) * 200 / (float) distfromCenter(x, y)) + 295;
-                    Y = ((y - 295) * 200 / (float) distfromCenter(x, y)) + 295;
+                    X = ((x - 295) * 200 / (float) dist) + 295;
+                    Y = ((y - 295) * 200 / (float) dist) + 295;
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -100,7 +102,8 @@ public class Joystick extends View {
                 break;
         }
 
-        onChange.accept((X - 295) / 200, (Y - 295) / 200);
+        if (onChange != null)
+            onChange.accept((X - 295) / 200, (Y - 295) / 200);
 
         // tell the View to redraw the Canvas
         invalidate();
@@ -108,8 +111,4 @@ public class Joystick extends View {
         // tell the View that we handled the event
         return true;
     }
-
-    /*public void setOnChange(java.util.function.BiConsumer<Float, Float> bi) {
-        onChange = bi;
-    }*/
 }
