@@ -106,7 +106,7 @@ public class Joystick extends View {
             onChange.accept((X - 295) / 200, (Y - 295) / 200);
 
         // tell the View to redraw the Canvas
-        invalidate();
+        postInvalidate();
 
         // tell the View that we handled the event
         return true;
