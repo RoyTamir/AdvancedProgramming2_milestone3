@@ -103,7 +103,7 @@ public class Joystick extends View {
         }
 
         if (onChange != null)
-            onChange.accept((X - 295) / 200, (Y - 295) / 200);
+            onChange.accept((X - 295) / 200, (295 - Y) / 200);
 
         // tell the View to redraw the Canvas
         postInvalidate();
