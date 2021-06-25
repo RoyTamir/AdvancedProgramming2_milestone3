@@ -23,10 +23,10 @@ public class Model {
                 System.out.println("connection failed");
                 return;
             }
-            sendToFG("set /controls/flight/aileron (-1…1)");
-            sendToFG("set /controls/flight/elevator (-1…1)");
-            sendToFG("set /controls/flight/rudder (-1…1)");
-            sendToFG("set /controls/engines/current-engine/throttle (0…1)");
+            sendToFG("set /controls/flight/aileron 0\r\n");
+            sendToFG("set /controls/flight/elevator 0\r\n");
+            sendToFG("set /controls/flight/rudder 0\r\n");
+            sendToFG("set /controls/engines/current-engine/throttle 1\r\n");
         });
     }
 
