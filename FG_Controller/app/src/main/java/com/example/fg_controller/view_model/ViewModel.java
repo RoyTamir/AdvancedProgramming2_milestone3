@@ -48,7 +48,7 @@ public class ViewModel {
 
     public void setA(Double a) {
         this.a = a;
-        model.sendToFG("set /controls/flight/aeliron " + a.toString() + "\r\n");
+        model.sendToFG("set /controls/flight/aileron " + a.toString() + "\r\n");
     }
 
     public Double getA() { return a; }
