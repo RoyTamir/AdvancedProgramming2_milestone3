@@ -32,12 +32,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick_connect(View view) {
-        /*System.out.println("port: " + viewModel.getPort());
-        System.out.println("ip: " + viewModel.getIp());
-        System.out.println("rudder: " + viewModel.getRudder());
-        System.out.println("throttle: " + viewModel.getThrottle());
-        System.out.println("aeliron: " + viewModel.getA());
-        System.out.println("elevator: " + viewModel.getElevator());*/
         viewModel.connect();
     }
 }
