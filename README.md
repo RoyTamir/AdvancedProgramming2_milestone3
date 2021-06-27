@@ -18,3 +18,24 @@ you can find the ip of this computer by running ```ipconfig``` on cmd for window
 After you insert the ip and port press ```connect``` and the connection we'll be made.
 
 ## How to controll the simulation:
+
+
+
+## MVVM Architecture
+
+### The view:
+The view is the part in the code that responsible of the graphic expirience of the user.   
+In our project in the package ```view``` you'll find 2 classes: ```JoyStick``` and ```MainActivity```.
+Those classes responsible of the code behind of the view.   
+```JoyStick``` is a custom view controller we wrote, and ```MainActivity``` is the main class of the app.
+In Main Activity we hold reprence to a ViewModel object, just like in the MVVM Architecture. We'll bind data from the grapic controllers we have to the viewModel fields.      
+The xml file ```activity_main.xml``` is the file responsible of the grapic part of the view. It set the attributes of the graphic controllers which set the way the screen looks.
+
+### The ViewModel:
+The ```view_model``` package is acontains the classs ```ViewModel``` this class role is to be kind of a pipe between the model and the view. Therfore we need to bind data from the view to the viewModel fieds and call the model functionality while neccessery.    
+The viewModel hold a reference to a model object and uses it while neccessery.
+
+### The Model:
+The  ```model``` package contains the class ```Model```.This class responsible to connect the FG server and send it data.   
+The connection and communication must be in a sepreate thread to not stuck the UI.   
+Therefore we hold a reference to a threadPool object that manage the functionalliy in a seperate thread.
