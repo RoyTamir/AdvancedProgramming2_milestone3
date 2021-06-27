@@ -14,7 +14,7 @@ You can do it by choosing in your IDE.
 ## How to connect to the simulation from the app:
 First you need to make sure that the flight gear app and the controller app are running on computers that are on the same network.
 Than at the controller app you need to insert the ip and the port of the computer that runs flight gear. The port is 6400 and
-you can find the ip of this computer by running ```ipconfig``` on cmd for windows and ```ifconfig``` on terminal for linux.
+you can find the ip of this computer by running ```ipconfig``` on cmd for windows or ```ifconfig``` on terminal for linux.
 After you insert the ip and port press ```connect``` and the connection we'll be made.
 
 ## How to controll the simulation:
