@@ -18,8 +18,10 @@ you can find the ip of this computer by running ```ipconfig``` on cmd for window
 After you insert the ip and port press ```connect``` and the connection we'll be made.
 
 ## How to controll the simulation:
-
-
+First open fg and go to ```Fly``` than connect the app to the simulation like we explained above.   
+After that we need to activate the engine. Press ```cecna``` and in there press ```auto fly```.   
+Now the plane engine start working, Slowly increase the throttle of the plane with the vertical seekbar. You need to always stabilize the plane before it airs, you can do it with the horizontal seekBar.
+After the plane airs use the joystick to controll is movement.
 
 ## MVVM Architecture
 
