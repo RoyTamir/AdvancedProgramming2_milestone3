@@ -1,4 +1,4 @@
-# AdvancedProgramming2_milestone3 - project by Roe Tamir and Itay Gradenwits.
+# FlightGear controller - project by Roe Tamir and Itay Gradenwits.
 
 ## Intro:
 We created an adroid app to controll flight simulator using the app Flight Gear.  
