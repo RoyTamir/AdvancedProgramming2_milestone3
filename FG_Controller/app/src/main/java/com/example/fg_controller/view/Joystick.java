@@ -45,8 +45,8 @@ public class Joystick extends View {
     }
 
     private void init (@Nullable AttributeSet set) {
-        X = 295;
-        Y = 295;
+        X = 375;
+        Y = 375;
     }
 
     @Override
@@ -56,22 +56,22 @@ public class Joystick extends View {
         android.graphics.Paint paint = new android.graphics.Paint();
 
         paint.setColor(Color.GRAY);
-        canvas.drawCircle(295, 295, 225, paint);
+        canvas.drawCircle(375, 375, 325, paint);
 
         paint.setColor(Color.LTGRAY);
-        canvas.drawCircle(295, 295, 175, paint);
+        canvas.drawCircle(375, 375, 275, paint);
 
         paint.setColor(Color.BLACK);
-        canvas.drawCircle(295, 295, 25, paint);
+        canvas.drawCircle(375, 375, 25, paint);
         paint.setStrokeWidth(50);
-        canvas.drawLine(295, 295, X, Y, paint);
+        canvas.drawLine(375, 375, X, Y, paint);
 
         paint.setColor(Color.RED);
         canvas.drawCircle(X, Y, 100, paint);
     }
 
     private double distfromCenter(float x, float y) {
-        return Math.sqrt(Math.pow(x - 295, 2) + Math.pow(y - 295, 2));
+        return Math.sqrt(Math.pow(x - 375, 2) + Math.pow(y - 375, 2));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -88,22 +88,22 @@ public class Joystick extends View {
         switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-                if (dist < 200) {
+                if (dist < 275) {
                     X = x;
                     Y = y;
                 } else {
-                    X = ((x - 295) * 200 / (float) dist) + 295;
-                    Y = ((y - 295) * 200 / (float) dist) + 295;
+                    X = ((x - 375) * 275 / (float) dist) + 375;
+                    Y = ((y - 375) * 275 / (float) dist) + 375;
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                X = 295;
-                Y = 295;
+                X = 375;
+                Y = 375;
                 break;
         }
 
         if (onChange != null)
-            onChange.accept((X - 295) / 200, (295 - Y) / 200);
+            onChange.accept((X - 375) / 275, (375 - Y) / 275);
 
         // tell the View to redraw the Canvas
         postInvalidate();
